@@ -14,7 +14,7 @@ export class TourItemController {
     @Post()
     @UseInterceptors(FileInterceptor('img', {
         storage: diskStorage({
-            destination: './public/',
+            destination: '/public/',
             filename: (req, file, cb) => {
                 const imgType = file.mimetype.split('/') // mimetype - свойство объекта files, которое приходит с клиента
                 const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
