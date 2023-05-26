@@ -14,9 +14,9 @@ export class OrderService {
         return orderData.save();
     }
 
-    async getOrders(): Promise<Order[]> {
-        return this.orderModel.find();
-    }
+    async getOrders(userId: string): Promise<Order[]> {
+        return this.orderModel.find({"userId":userId})};
+    
 
     async getOrdersById(_id): Promise<Order> {
         return this.orderModel.findById(_id);

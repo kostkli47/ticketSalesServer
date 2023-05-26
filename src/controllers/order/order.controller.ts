@@ -15,14 +15,14 @@ export class OrderController {
         this.orderService.sendOrder(orderData);
     }
 
-    @Get()
-    getOrders(): Promise<Order[]> {
-        return this.orderService.getOrders();
+    @Get(":userId")
+    getOrders(@Param("userId") userId): Promise<Order[]> {
+        return this.orderService.getOrders(userId);
     }
 
-    @Get(":id")
+/*     @Get(":id")
     getOrdersById(@Param('id')id):Promise<Order> {
         return this.orderService.getOrdersById(id);
-    }
+    } */
 
 }

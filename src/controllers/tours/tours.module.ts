@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from 'src/static/private/constants';
+import { TourItemController } from '../tour-item/tour-item.controller';
 
 @Module({
     imports: [MongooseModule.forFeature([{name:Tour.name, schema: TourSchema}]),
@@ -15,7 +16,7 @@ import { jwtConstants } from 'src/static/private/constants';
         secret: jwtConstants.secret,
 
       }),],
-  controllers: [ToursController],
+  controllers: [ToursController, TourItemController],
   providers: [ToursService, JwtStrategyService],
 })
 export class ToursModule {}
